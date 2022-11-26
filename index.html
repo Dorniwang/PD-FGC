@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html>
+
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>PD-FGC</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./files/bootstrap.min.css">
+    <link rel="stylesheet" href="./files/font-awesome.min.css">
+    <link rel="stylesheet" href="./files/codemirror.min.css">
+    <link rel="stylesheet" href="./files/app.css">
+
+
+
+
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-20 text-center">
+                <br></br>
+                <b>PD-FGC</b>: Progressive Disentangled Representation Learning for Fine-Grained Controllable Talking Head Synthesis<br>
+<!--                 <small>
+                    CVPR 2022 (Oral Presentation)
+                </small> -->
+            </h1>
+            <hr style="margin-top:0px">
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://Dorniwang.github.io/" style="font-size: 16px;">
+                            Duomin Wang
+                        </a>
+                        <!-- <sup>1</sup> -->
+                    </li>
+                    <li>
+                        <a href="https://YuDeng.github.io/" style="font-size: 16px;">
+                            Yu Deng
+                        </a>
+                        <!-- <sup>1</sup> -->
+                    </li>
+                    <li>
+                        <a style="font-size: 16px;">
+                            Zixin Yin
+                        </a>
+                        <!-- <sup>1,2</sup> -->
+                    </li>
+                    <li>
+                        <a href="https://www.microsoft.com/en-us/research/people/hshum/" style="font-size: 16px;">
+                            Heung-Yeung Shum
+                        </a>
+                        <!-- <sup>1,2</sup> -->
+                    </li>
+                    <li>
+                        <a href="https://sites.google.com/site/zjuwby/?pli=1" style="font-size: 16px;">
+                            Baoyuan Wang
+                        </a>
+                        <!-- <sup>1</sup> -->
+                    </li><br>
+                    <a></a><br>
+                    <li>
+                        <!-- <sup>1</sup> -->
+                        <a href="https://www.xiaoice.com/" style="font-size: 16px;">
+                            Xiaobing.ai
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <sup>2</sup>
+                        <a href="https://hkust.edu.hk/?cn=1"
+                            style="font-size: 16px;">
+                            The Hong Kong University of Science and Technology
+                        </a>
+                    </li> -->
+<!--                     <li>
+                        <sup>3</sup>
+                        <a href="http://en.ustc.edu.cn/" style="font-size: 16px;">
+                            University of Science and Technology of China
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <ul class="nav nav-pills nav-justified">
+                    <li>
+                        <a href="">
+                            <img src="./files/paper.png" height="60px">
+                            <h4><strong>Paper</strong></h4>
+                        </a>
+                    </li>
+
+                    <li>
+<!--                         <a onClick="alert('Code coming soon!\nContact dengyu2008@hotmail.com for more details.')"> -->
+                        <!-- <a href="https://github.com/dorniwang/PD-FGC"> -->
+                        <a>
+                            <img src="./files/github.png" height="60px">
+                            <h4><strong>Code (coming soon)</strong></h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <a>
+                    <!-- <video style="width:100%;height:100%;" playsinline autoplay loop preload muted>
+                        <source src="./files/cover.mp4" type="video/mp4">
+                    </video> -->
+                    <img src="./files/teaser.png" class="img-responsive" alt="teaser"><br>
+                    
+                </a>
+                <p class="text-justify" style="font-size: 16px;">
+                    Our method takes an appearance reference as input and generates its talking head with disentangled control over lip motion, 
+                    head pose, eye gaze\&blink, and emotional expression, where the driving signal of lip motion comes from speech audio, 
+                    and all other motions are controlled by different videos. As shown, 
+                    it well disentangles all motion factors and achieves precise control over individual motion.
+                </p>
+                <br></br>
+                <h2>
+                    Abstract
+                </h2>
+                <hr style="margin-top:0px">
+                <p class="text-justify" style="font-size: 16px;">
+                    We present a novel one-shot talking head synthesis method that achieves disentangled and fine-grained control over lip motion, 
+                    eye gaze&blink, head pose, and emotional expression. 
+                    We represent different motions via disentangled latent representations and leverage an image generator to synthesize talking heads from them. 
+                    To effectively disentangle each motion factor, we propose a progressive disentangled representation learning strategy by separating the factors in a coarse-to-fine manner, where we first extract unified motion feature from the driving signal, and then isolate each fine-grained motion from the unified feature. We introduce motion-specific contrastive learning and regressing for non-emotional motions, and feature-level decorrelation and self-reconstruction for emotional expression, 
+                    to fully utilize the inherent properties of each motion factor in unstructured video data to achieve disentanglement. 
+                    Experiments show that our method provides high quality speech&lip-motion synchronization along with precise and disentangled control over multiple extra facial motions, 
+                    which can hardly be achieved by previous methods.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Video
+                </h2>
+                <hr style="margin-top:0px">
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/uSH6yweD6QU" allowfullscreen=""
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Overview
+                </h2>
+                <hr style="margin-top:0px">
+                <img src="./files/overview.png" class="img-responsive" alt="overview"><br>
+                <p class="text-justify" style="font-size: 16px;">
+                    The overview of our method. 
+                    We achieve factor disentanglement for different facial motions via a progressive disentangled representation learning strategy. 
+                    We first disentangle appearance with all facial motions to obtain a unified motion feature for further fine-grained disentanglement. 
+                    Then, we separate each fine-grained motion feature from the unified motion feature via motion-specific contrastive learning and the help of a 3D prior model. 
+                    Finally, we disentangle expression with other motions by feature-level decorrelation and simultaneously learn an image generator for controllable talking head synthesis.
+                </p>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Generation Results
+                </h2>
+                <hr style="margin-top:0px">
+                <p class="text-justify" style="font-size: 16px;">
+                    PD-FGC is able to generate talking head with accurate lip motion. 
+                    Moreover, it allows fine-grained controllable over facial motion,
+                    including head pose, eye blink & gaze and emotional expression.
+                    All controllable properties are disentangled with each ohter, 
+                    which means we can easily combine different properties from different sources into a novel video.
+                </p>
+                <video style="width:100%;height:100%;" controls style="margin: 5px;" >
+                    <source src="./files/cover_withoutpose.mp4" type="video/mp4">
+                </video>
+                <hr style="margin-top:0px">
+                <p class="text-justify" style="font-size: 16px;">
+                    PD-FGC achieves the accurate lip motion, eye blink & gaze, emotional expression control as well as head pose compared with other methods.
+                </p>
+                <video style="width:100%;height:100%;" controls style="margin: 5px;" >
+                    <source src="./files/vid1.mp4" type="video/mp4">
+                </video>
+                <video style="width:100%;height:100%;" controls style="margin: 5px;" >
+                    <source src="./files/vid2.mp4" type="video/mp4">
+                </video>
+                <video style="width:100%;height:100%;" controls style="margin: 5px;" >
+                    <source src="./files/vid3.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Disentangled Control
+                </h2>
+                <hr style="margin-top:0px">
+                <p class="text-justify" style="font-size: 16px;">
+                    PD-FGC allows disentangled control over different facial properties.
+                    In addition to combine different properties into a novel video, 
+                    it can also drive one specific properties while leave others unchanged or set them to canonical pose.
+                </p>
+                <img src="./files/disentanglement.png" class="img-responsive" alt="disentanglement"><br>
+            </div>
+            <div class="row justify-content-center" style="align-items:center; display:flex; margin-bottom: 20px;">
+                <video style="width:50%;height:50%;" controls style="margin: 5px;" >
+                    <source src="./files/lip.mp4" type="video/mp4">
+                </video>
+                <video style="width:50%;height:50%;" controls style="margin: 5px;" >
+                    <source src="./files/pose.mp4" type="video/mp4">
+                </video>
+                </video>
+            </div>
+            <div class="row justify-content-center" style="align-items:center; display:flex; margin-bottom: 20px;">
+                <video style="width:50%;height:50%;" controls style="margin: 5px;" >
+                    <source src="./files/gaze.mp4" type="video/mp4">
+                </video>
+                <video style="width:50%;height:50%;" controls style="margin: 5px;" >
+                    <source src="./files/blink.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="row justify-content-center" style="align-items:center; display:flex; margin-bottom: 20px;">
+                <video style="width:50%;height:50%;" controls style="margin: 5px;" >
+                    <source src="./files/expression.mp4" type="video/mp4">
+                </video>
+                <video style="width:50%;height:50%;" controls style="margin: 5px;" >
+                    <source src="./files/all_combined.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Expression Interpolation
+                </h2>
+                <hr style="margin-top:0px">
+                <p class="text-justify" style="font-size: 16px;">
+                    PD-FGC can smoothly transfer between two different expres-
+                    sions. The synthesized images at interpolated points also
+                    have natural expressions. This indicates that our method
+                    learns a reasonable expression latent space that supports
+                    continuous expression control
+                </p>
+                <img src="./files/expression_interpolation.png" class="img-responsive" alt="expression"><br>
+            </div>
+        </div>
+
+
+        <!-- <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Responsible AI Considerations
+                </h2>
+                <hr style="margin-top:0px">
+                <p class="text-justify" style="font-size: 16px;">
+                    The goal of this paper is to study generative modelling of the 3D objects from 2D images, 
+                    and to provide a method for generating multi-view images of non-existing, virtual objects. 
+                    It is not intended to manipulate existing images nor to create content that is used to mislead or deceive. 
+                    This method does not have understanding and control of the generated content. 
+                    Thus, adding targeted facial expressions or mouth movements is out of the scope of this work. 
+                    However, the method, like all other related AI image generation techniques, 
+                    could still potentially be misused for impersonating humans. Currently, 
+                    the images generated by this method contain visual artifacts, unnatural texture patterns, 
+                    and other unpredictable failures that can be spotted by humans and fake image detection algorithms. 
+                    We also plan to investigate applying this technology for advancing 3D- and video-based forgery detection.  
+                </p>
+            </div>
+        </div> -->
+
+        <!-- <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Availability of Software
+                </h2>
+                <hr style="margin-top:0px">
+                <p class="text-justify" style="font-size: 16px;">
+                    Per concerns about misuse of this method, the code is available for use under a <a href="https://github.com/microsoft/GRAM/blob/main/GRAM-Microsoft%20Research%20License%20Agreement.pdf">research-only license</a>. 
+                </p>
+            </div>
+        </div> -->
+
+        <!-- <div class="row">
+            <div class="col-md-12 col-md-offset-0">
+                <div class="text-center">
+                    <h2>
+                        Citation
+                    </h2>
+                </div>
+                <hr style="margin-top:0px">
+                <div class="form-group col-md-12 col-md-offset-0">
+                    <div class="CodeMirror cm-s-default CodeMirror-wrap" style="font-size: 16px;">
+                        <div
+                            style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 4px; ">
+                            <textarea autocorrect="off" autocapitalize="off" spellcheck="false"
+                                style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"
+                                tabindex="0"></textarea></div>
+                        <div class="CodeMirror-vscrollbar" cm-not-content="true">
+                            <div style="min-width: 1px; height: 0px;"></div>
+                        </div>
+                        <div class="CodeMirror-hscrollbar" cm-not-content="true">
+                            <div style="height: 100%; min-height: 1px; width: 0px;"></div>
+                        </div>
+                        <div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div>
+                        <div class="CodeMirror-gutter-filler" cm-not-content="true"></div>
+                        <div class="CodeMirror-scroll" tabindex="-1">
+                            <div class="CodeMirror-sizer"
+                                style="margin-left: 0px; margin-bottom: -17px; border-right-width: 13px; min-height: 162px; padding-right: 0px; padding-bottom: 0px;">
+                                <div style="position: relative; top: 0px;">
+                                    <div class="CodeMirror-lines">
+                                        <div style="position: relative; outline: none;">
+                                            <div class="CodeMirror-measure">AخA</div>
+                                            <div class="CodeMirror-measure"></div>
+                                            <div style="position: relative; z-index: 1;"></div>
+                                            <div class="CodeMirror-cursors">
+                                                <div class="CodeMirror-cursor"
+                                                    style="left: 4px; top: 0px; height: 17.1406px;">&nbsp;</div>
+                                            </div>
+                                            <div class="CodeMirror-code" style="">
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;">@inproceedings{deng2022gram,</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  title={GRAM: Generative Radiance Manifolds for 3D-Aware Image Generation},</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  author={Deng, Yu and Yang, Jiaolong and Xiang, Jianfeng and Tong, Xin},</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  booktitle={IEEE/CVF Conference on Computer Vision and Pattern Recognition},</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  year={2022}</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;">}</span></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="position: absolute; height: 13px; width: 1px; top: 280px;"></div>
+                            <div class="CodeMirror-gutters" style="display: none; height: 300px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Acknowledgements
+                </h2>
+                <hr style="margin-top:0px">
+                <p class="text-justify" style="font-size: 16px;">
+                    <!-- We thank Harry Shum for the fruitful advice and discussion to improve the paper. <br> -->
+                    The website template was adapted from <a href="https://yudeng.github.io/GRAM/">GRAM</a>.
+                </p>
+            </div>
+        </div>
+
+
+</body>
+
+</html>
